@@ -9,7 +9,11 @@
 
 * 起動中のコンテナに入る
   ```
+  # app container
   docker-compose exec app bash
+  
+  # db container
+  docker-compose exec db bash
   ```
 
 * 停止
