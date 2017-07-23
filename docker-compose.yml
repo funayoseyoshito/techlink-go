@@ -4,12 +4,13 @@ app:
   links:
     - db
   volumes:
-    - "./app:/go/src/app"
-#  command: go run /go/src/app/main.go
+    - "./app:/go/src/github.com/techlink/cli"
 db:
-  image: mysql:5.7
+  build: .
+  dockerfile: Dockerfile-MySQL
   volumes:
     - ./db/mysql_data:/var/lib/mysql
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=app
+  command: mysqld --sql_mode="" --character-set-server=utf8 --collation-server=utf8_general_ci
